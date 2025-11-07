@@ -1,0 +1,157 @@
+import { useState } from 'react'
+import { Container } from '../components/Container'
+import { AnimatedSection } from '../components/AnimatedSection'
+import { Card } from '../components/Card'
+import { Button } from '../components/Button'
+import { AnimatedBackground } from '../components/AnimatedBackground'
+import { motion } from 'framer-motion'
+
+interface FormData {
+  name: string
+  email: string
+  message: string
+}
+
+export const ContactCTA: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    message: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    // Mock submission
+    await new Promise(resolve => setTimeout(resolve, 1500))
+
+    console.log('Form submitted:', formData)
+    setIsSubmitting(false)
+    setIsSubmitted(true)
+
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setFormData({ name: '', email: '', message: '' })
+      setIsSubmitted(false)
+    }, 3000)
+  }
+
+  const isFormValid = formData.name && formData.email && formData.message
+
+  return (
+    <section id="contact" className="relative min-h-screen flex items-center py-20 bg-white overflow-hidden">
+      <AnimatedBackground variant="primary" />
+      <Container size="md" className="w-full relative z-10">
+        <AnimatedSection className="text-center mb-8 md:mb-12 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
+            ¿Listo para <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">comenzar</span>?
+          </h2>
+          <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
+            Contáctanos y descubre cómo IMCLABS puede transformar tu práctica médica
+          </p>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.2}>
+          <Card variant="neu" className="max-w-2xl mx-auto">
+            {isSubmitted ? (
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="text-center py-12"
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">¡Mensaje Enviado!</h3>
+                <p className="text-gray-600">Nos pondremos en contacto contigo pronto.</p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Nombre *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200 bg-white shadow-neu-inset"
+                    placeholder="Tu nombre completo"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200 bg-white shadow-neu-inset"
+                    placeholder="tu@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Mensaje *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200 bg-white shadow-neu-inset resize-none"
+                    placeholder="Cuéntanos cómo podemos ayudarte..."
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  className="w-full"
+                  disabled={!isFormValid || isSubmitting}
+                >
+                  {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                </Button>
+              </form>
+            )}
+          </Card>
+
+          {/* Contact Info */}
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-2">O escríbenos directamente a:</p>
+            <a
+              href="mailto:contacto@imclabs.com"
+              className="text-primary hover:text-primary font-semibold text-lg transition-colors duration-200"
+            >
+              contacto@imclabs.com
+            </a>
+          </div>
+        </AnimatedSection>
+      </Container>
+    </section>
+  )
+}
