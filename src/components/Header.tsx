@@ -1,20 +1,8 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import { Button } from './Button'
 import { Container } from './Container'
 import logoImg from '../assets/images/logoimc.png'
 
 export const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -23,21 +11,13 @@ export const Header: React.FC = () => {
   }
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+
       <Container>
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center cursor-pointer"
+          <div
+            className="flex items-center cursor-pointer transition-transform duration-200 hover:scale-105"
             onClick={() => scrollToSection('hero')}
           >
             <img
@@ -45,7 +25,7 @@ export const Header: React.FC = () => {
               alt="IMCLABS Logo"
               className="h-12 w-auto"
             />
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -101,6 +81,6 @@ export const Header: React.FC = () => {
           </button>
         </nav>
       </Container>
-    </motion.header>
+    </header>
   )
 }

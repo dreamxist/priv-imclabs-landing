@@ -2,8 +2,6 @@ import { Container } from '../components/Container'
 import { AnimatedSection } from '../components/AnimatedSection'
 import { Card } from '../components/Card'
 import { IconWrapper } from '../components/IconWrapper'
-import { AnimatedBackground } from '../components/AnimatedBackground'
-import { motion } from 'framer-motion'
 
 const steps = [
   {
@@ -52,31 +50,7 @@ const steps = [
 
 export const HowItWorks: React.FC = () => {
   return (
-    <section id="how-it-works" className="min-h-screen flex items-center py-20 bg-white relative overflow-hidden">
-      <AnimatedBackground variant="mixed" />
-      {/* Flowing line background */}
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <svg className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full" style={{ maxWidth: '1200px' }}>
-          <motion.path
-            d="M 100 100 Q 400 100 400 300 T 700 500 T 1000 700"
-            stroke="url(#gradient)"
-            strokeWidth="3"
-            fill="none"
-            strokeDasharray="10 10"
-            initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 0.2 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, ease: 'easeInOut' }}
-          />
-          <defs>
-            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#5CD6B2" />
-              <stop offset="100%" stopColor="#A29BFE" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
+    <section id="how-it-works" className="snap-start snap-always h-[calc(100vh-72px)] min-h-[600px] flex items-center py-20 bg-white relative overflow-hidden">
       <Container className="w-full relative z-10">
         <AnimatedSection className="text-center mb-12 md:mb-16 px-4">
           <div className="inline-block mb-6 px-5 py-2 bg-accent/50 rounded-full text-accent font-semibold text-sm">
@@ -92,7 +66,7 @@ export const HowItWorks: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {steps.map((step, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
+            <AnimatedSection key={index} delay={index * 100}>
               <Card className="h-full relative">
                 <div className="flex items-start space-x-4">
                   <IconWrapper

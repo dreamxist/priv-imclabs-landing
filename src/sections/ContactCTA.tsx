@@ -3,8 +3,6 @@ import { Container } from '../components/Container'
 import { AnimatedSection } from '../components/AnimatedSection'
 import { Card } from '../components/Card'
 import { Button } from '../components/Button'
-import { AnimatedBackground } from '../components/AnimatedBackground'
-import { motion } from 'framer-motion'
 
 interface FormData {
   name: string
@@ -49,8 +47,7 @@ export const ContactCTA: React.FC = () => {
   const isFormValid = formData.name && formData.email && formData.message
 
   return (
-    <section id="contact" className="relative min-h-screen flex items-center py-20 bg-white overflow-hidden">
-      <AnimatedBackground variant="primary" />
+    <section id="contact" className="snap-start snap-always relative h-[calc(100vh-72px)] min-h-[600px] flex items-center py-20 bg-white overflow-hidden">
       <Container size="md" className="w-full relative z-10">
         <AnimatedSection className="text-center mb-8 md:mb-12 px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
@@ -61,14 +58,10 @@ export const ContactCTA: React.FC = () => {
           </p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.2}>
+        <AnimatedSection delay={200}>
           <Card variant="neu" className="max-w-2xl mx-auto">
             {isSubmitted ? (
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="text-center py-12"
-              >
+              <div className="text-center py-12 animate-scale-in">
                 <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -76,7 +69,7 @@ export const ContactCTA: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">¡Mensaje Enviado!</h3>
                 <p className="text-gray-600">Nos pondremos en contacto contigo pronto.</p>
-              </motion.div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>

@@ -1,20 +1,25 @@
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { Hero, About, Features, HowItWorks, Benefits, ContactCTA } from './sections'
+import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 function App() {
+  useSmoothScroll()
+
   return (
-    <div className="min-h-screen">
+    <div className="h-screen overflow-hidden">
       <Header />
-      <main>
+      <main className="snap-y snap-mandatory overflow-y-scroll h-screen pt-[72px]">
         <Hero />
         <About />
         <Features />
         <HowItWorks />
         <Benefits />
         <ContactCTA />
+        <div className="snap-start">
+          <Footer />
+        </div>
       </main>
-      <Footer />
     </div>
   )
 }

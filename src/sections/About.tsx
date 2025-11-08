@@ -1,11 +1,9 @@
 import { Container } from '../components/Container'
 import { AnimatedSection } from '../components/AnimatedSection'
-import { AnimatedBackground } from '../components/AnimatedBackground'
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="relative min-h-screen flex items-center py-20 bg-white overflow-hidden">
-      <AnimatedBackground variant="accent" />
+    <section id="about" className="snap-start snap-always relative h-[calc(100vh-72px)] min-h-[600px] flex items-center py-20 bg-white overflow-hidden">
       <Container className="relative z-10">
         <AnimatedSection className="text-center max-w-5xl mx-auto px-4">
           <div className="inline-block mb-6 px-5 py-2 bg-accent/50 rounded-full text-accent font-semibold text-sm">

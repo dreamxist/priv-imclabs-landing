@@ -1,7 +1,6 @@
 import { Container } from '../components/Container'
 import { AnimatedSection } from '../components/AnimatedSection'
 import { Card } from '../components/Card'
-import { AnimatedBackground } from '../components/AnimatedBackground'
 
 const doctorBenefits = [
   {
@@ -46,8 +45,7 @@ const patientBenefits = [
 
 export const Benefits: React.FC = () => {
   return (
-    <section id="benefits" className="relative min-h-screen flex items-center py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      <AnimatedBackground variant="accent" />
+    <section id="benefits" className="snap-start snap-always relative h-[calc(100vh-72px)] min-h-[600px] flex items-center py-20 bg-white overflow-hidden">
       <Container className="w-full relative z-10">
         <AnimatedSection className="text-center mb-12 md:mb-16 px-4">
           <div className="inline-block mb-6 px-5 py-2 bg-primary/50 rounded-full text-primary font-semibold text-sm">
@@ -63,7 +61,7 @@ export const Benefits: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Doctor Benefits */}
-          <AnimatedSection delay={0.1}>
+          <AnimatedSection delay={100}>
             <Card variant="elevated" className="h-full">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary rounded-2xl flex items-center justify-center text-3xl shadow-lg">
@@ -90,7 +88,7 @@ export const Benefits: React.FC = () => {
           </AnimatedSection>
 
           {/* Patient Benefits */}
-          <AnimatedSection delay={0.2}>
+          <AnimatedSection delay={200}>
             <Card variant="elevated" className="h-full">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent rounded-2xl flex items-center justify-center text-3xl shadow-lg">

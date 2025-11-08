@@ -1,29 +1,37 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 interface AnimatedSectionProps {
   children: React.ReactNode
   className?: string
   delay?: number
+  animation?: 'fade-up' | 'fade-left' | 'fade-right' | 'scale'
 }
 
 export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   children,
-  className,
+  className = '',
   delay = 0,
+  animation = 'fade-up',
 }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const { elementRef, isVisible } = useScrollReveal()
+
+  const animationClass = {
+    'fade-up': 'scroll-reveal',
+    'fade-left': 'scroll-reveal-left',
+    'fade-right': 'scroll-reveal-right',
+    'scale': 'scroll-reveal-scale',
+  }[animation]
+
+  // Map delay numbers to CSS class names
+  const delayClass = delay > 0 ? `delay-${delay}` : ''
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.6, delay, ease: 'easeOut' }}
-      className={className}
+    <div
+      ref={elementRef as React.RefObject<HTMLDivElement>}
+      className={`${animationClass} ${isVisible ? 'revealed' : ''} ${delayClass} ${className}`}
+      style={delay > 0 && !delayClass ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }

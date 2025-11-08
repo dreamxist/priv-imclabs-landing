@@ -7,16 +7,44 @@
     @apply bg-white;
     @apply text-gray-800;
     @apply antialiased;
-    background-image:
-      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(191, 219, 254, 0.08) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(30, 58, 138, 0.08) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
-    background-attachment: fixed;
+    overflow: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+    overflow: hidden;
+  }
+
+  /* Scroll snap smoothness - muy suave y lento */
+  main {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 72px;
+  }
+
+  /* Hacer que cada sección se detenga completamente al hacer snap */
+  section {
+    scroll-snap-stop: always;
+  }
+
+  /* Suavizar el scroll en navegadores webkit */
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    main {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Aumentar la duración de la transición de scroll */
+  html {
+    scroll-snap-type: y mandatory;
+  }
+
+  @supports (scroll-timeline: works) {
+    main {
+      scroll-behavior: smooth;
+      animation-timeline: scroll();
+    }
   }
 }
 
@@ -27,5 +55,91 @@
 
   .neu-hover {
     @apply transition-shadow duration-200 hover:shadow-neu-hover;
+  }
+
+  /* Scroll reveal utilities with blur effect */
+  .scroll-reveal {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+
+  .scroll-reveal-left {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-reveal-left.revealed {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-right {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(30px);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-reveal-right.revealed {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-scale {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-reveal-scale.revealed {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+
+  /* Delays for stagger effect */
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+
+  .delay-400 {
+    transition-delay: 400ms;
+  }
+
+  .delay-500 {
+    transition-delay: 500ms;
+  }
+
+  .delay-600 {
+    transition-delay: 600ms;
+  }
+
+  .delay-700 {
+    transition-delay: 700ms;
+  }
+
+  .delay-800 {
+    transition-delay: 800ms;
   }
 }
