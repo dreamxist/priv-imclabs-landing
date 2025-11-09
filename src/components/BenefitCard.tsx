@@ -79,7 +79,7 @@ export const BenefitCard: React.FC<BenefitCardProps> = ({
       }}
       whileHover={{ y: -8, scale: 1.02 }}
       className={clsx(
-        "relative bg-white rounded-2xl p-6 md:p-8 shadow-lg border-2 transition-all duration-300 hover:shadow-2xl",
+        "relative bg-white rounded-2xl p-4 md:p-8 shadow-lg border-2 transition-all duration-300 hover:shadow-2xl",
         colors.border
       )}
     >
@@ -103,18 +103,18 @@ export const BenefitCard: React.FC<BenefitCardProps> = ({
       </motion.div>
 
       {/* Title */}
-      <h3 className={clsx("text-xl md:text-2xl font-bold mb-3", colors.text)}>
+      <h3 className={clsx("text-lg md:text-2xl font-bold mb-2 md:mb-3", colors.text)}>
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
+      <p className="text-gray-700 text-xs md:text-base leading-relaxed mb-3 md:mb-4">
         {description}
       </p>
 
       {/* Features */}
       {features.length > 0 && (
-        <ul className="space-y-2 mb-4">
+        <ul className="space-y-1.5 md:space-y-2 mb-3 md:mb-4">
           {features.map((feature, index) => (
             <motion.li
               key={index}
@@ -122,7 +122,7 @@ export const BenefitCard: React.FC<BenefitCardProps> = ({
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: delay + 0.3 + (index * 0.1) }}
-              className="flex items-start gap-2 text-sm text-gray-600"
+              className="flex items-start gap-2 text-xs md:text-sm text-gray-600"
             >
               <span className={clsx("mt-0.5 w-1.5 h-1.5 rounded-full flex-shrink-0", colors.icon)} />
               <span>{feature}</span>

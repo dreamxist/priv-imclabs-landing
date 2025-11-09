@@ -73,15 +73,15 @@ const StepCard = ({ step, index, globalIndex }: { step: TimelineStep; index: num
 // Intro Section
 export const ProcessIntro = ({ title, subtitle }: { title?: string; subtitle?: string }) => {
   return (
-    <section className="snap-start snap-always relative h-screen min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section id="how-it-works" className="snap-start snap-always relative min-h-[calc(100vh-64px)] md:min-h-screen flex items-center justify-center bg-white overflow-hidden py-12 md:py-0">
       <div className="text-center max-w-2xl md:max-w-3xl px-4 md:px-8">
         <div className="inline-block mb-4 md:mb-6 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 rounded-full text-white font-semibold text-sm md:text-base shadow-lg">
           {title || 'Proceso Completo'}
         </div>
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 leading-tight">
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 leading-tight px-4">
           {subtitle || 'De la prescripción al medicamento'}
         </h3>
-        <p className="text-sm md:text-base text-gray-600 mb-8">
+        <p className="text-sm md:text-base text-gray-600 mb-8 px-4">
           Desliza para conocer cada paso del proceso
         </p>
         <motion.div
@@ -101,8 +101,8 @@ export const DoctorProcess = ({ steps }: { steps: TimelineStep[] }) => {
   const doctorSteps = steps.filter(step => step.row === 'doctor');
 
   return (
-    <section className="snap-start snap-always relative h-screen min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-blue-50/30 overflow-hidden">
-      <div className="w-full max-w-3xl mx-auto px-4 md:px-8 py-12">
+    <section className="snap-start snap-always relative min-h-[calc(100vh-64px)] md:min-h-screen flex items-center justify-center bg-white overflow-hidden py-12 md:py-16">
+      <div className="w-full max-w-3xl mx-auto px-4 md:px-8">
         <div className="mb-6 md:mb-10 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-600 mb-2">Proceso del Médico</h3>
           <p className="text-sm md:text-base text-gray-600">Pasos 1 - 2 - 3</p>
@@ -122,8 +122,8 @@ export const PatientProcess = ({ steps }: { steps: TimelineStep[] }) => {
   const patientSteps = steps.filter(step => step.row === 'patient');
 
   return (
-    <section className="snap-start snap-always relative h-screen min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50/30 to-white overflow-hidden">
-      <div className="w-full max-w-3xl mx-auto px-4 md:px-8 py-12">
+    <section className="snap-start snap-always relative min-h-[calc(100vh-64px)] md:min-h-screen flex items-center justify-center bg-white overflow-hidden py-12 md:py-16">
+      <div className="w-full max-w-3xl mx-auto px-4 md:px-8">
         <div className="mb-6 md:mb-10 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-green-600 mb-2">Proceso del Paciente</h3>
           <p className="text-sm md:text-base text-gray-600">Pasos 4 - 5 - 6</p>

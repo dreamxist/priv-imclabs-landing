@@ -20,12 +20,26 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: y mandatory;
-    scroll-padding-top: 72px;
+    scroll-padding-top: 64px;
+  }
+
+  @media (min-width: 768px) {
+    main {
+      scroll-padding-top: 72px;
+    }
   }
 
   /* Hacer que cada sección se detenga completamente al hacer snap */
   section {
     scroll-snap-stop: always;
+  }
+
+  /* Mejoras para dispositivos táctiles */
+  @media (hover: none) and (pointer: coarse) {
+    main {
+      scroll-snap-type: y proximity;
+      overscroll-behavior-y: contain;
+    }
   }
 
   /* Suavizar el scroll en navegadores webkit */

@@ -7,43 +7,42 @@ const features = [
   {
     icon: '🧠',
     title: 'Inteligencia Artificial',
-    description: 'Aprende de recetas exitosas en pacientes reales para recomendar fórmulas efectivas',
+    description: 'Aprende de recetas exitosas y recomienda fórmulas efectivas',
     color: 'primary' as const,
   },
   {
     icon: '✅',
     title: 'Componentes Verificados',
-    description: 'Garantiza la disponibilidad de principios activos antes de recetar',
+    description: 'Valida disponibilidad antes de recetar',
     color: 'accent' as const,
   },
   {
     icon: '⚡',
     title: 'Proceso Ágil',
-    description: 'De la consulta al pago en minutos, con elaboración inmediata',
+    description: 'De la consulta al pago en minutos',
     color: 'primary' as const,
   },
   {
     icon: '🔒',
     title: 'Seguro y Preciso',
-    description: 'Evita interacciones peligrosas y ajusta dosis automáticamente',
+    description: 'Evita interacciones y ajusta dosis automáticamente',
     color: 'accent' as const,
   },
 ]
 
 export const Features: React.FC = () => {
   return (
-    <section id="features" className="snap-start snap-always relative h-[calc(100vh-72px)] min-h-[600px] flex items-center py-20 bg-white overflow-hidden">
+    <section id="features" className="snap-start snap-always relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-72px)] flex items-center py-12 md:py-20 bg-white overflow-hidden">
       <Container className="w-full relative z-10">
         <AnimatedSection className="text-center mb-12 md:mb-16 px-4">
           <div className="inline-block mb-6 px-5 py-2 bg-primary/50 rounded-full text-primary font-semibold text-sm">
             La Solución
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
-            Sistema Inteligente de <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Recomendación</span>
+            Sistema con <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Inteligencia Artificial</span>
           </h2>
           <p className="text-base md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Usamos <span className="font-semibold text-accent">Machine Learning</span> para aprender de las recetas que mejor funcionan
-            en pacientes reales y recomendar fórmulas magistrales <span className="font-semibold text-primary">efectivas y seguras</span>
+            Aprende de recetas exitosas y recomienda fórmulas seguras
           </p>
         </AnimatedSection>
 

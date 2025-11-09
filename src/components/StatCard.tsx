@@ -70,109 +70,45 @@ export const StatCard: React.FC<StatCardProps> = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.5, y: 20 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration: 0.6,
-        delay,
-        type: "spring",
-        stiffness: 200,
-        damping: 15
-      }}
-      whileHover={{ scale: 1.05, y: -8 }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3, delay }}
+      whileHover={{ scale: 1.03, y: -2 }}
       className={clsx(
-        "relative bg-white rounded-2xl p-5 md:p-6 shadow-lg border-2 transition-all duration-300 hover:shadow-xl overflow-hidden",
-        colors.border,
-        colors.shadow
+        "relative bg-white/80 backdrop-blur-sm rounded-lg p-2.5 md:p-3 shadow-sm border transition-all duration-300 hover:shadow-md overflow-hidden group",
+        colors.border
       )}
     >
       {/* Background Gradient */}
       <div className={clsx(
-        "absolute inset-0 bg-gradient-to-br opacity-5",
-        colors.light
-      )} />
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Icon */}
-        <motion.div
-          initial={{ scale: 0, rotate: -90 }}
-          whileInView={{ scale: 1, rotate: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: delay + 0.1,
-            type: "spring",
-            stiffness: 200
-          }}
-          className="mb-3"
-        >
-          <div className={clsx(
-            "w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br shadow-md flex items-center justify-center",
-            colors.gradient
-          )}>
-            <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" strokeWidth={2.5} />
-          </div>
-        </motion.div>
-
-        {/* Value */}
-        <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: delay + 0.2,
-            type: "spring",
-            stiffness: 150
-          }}
-          className={clsx(
-            "text-3xl md:text-4xl font-bold mb-1",
-            colors.text
-          )}
-        >
-          {value}
-        </motion.div>
-
-        {/* Label */}
-        <div className="text-sm md:text-base font-semibold text-gray-700 mb-1">
-          {label}
-        </div>
-
-        {/* Description */}
-        {description && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: delay + 0.3 }}
-            className="text-xs md:text-sm text-gray-500 leading-snug"
-          >
-            {description}
-          </motion.p>
-        )}
-
-        {/* Trend Indicator */}
-        {trend !== 'neutral' && (
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: delay + 0.4 }}
-            className={clsx(
-              "absolute top-5 right-5 w-2 h-2 rounded-full",
-              trend === 'up' ? 'bg-green-500' : 'bg-red-500'
-            )}
-          />
-        )}
-      </div>
-
-      {/* Decorative Corner */}
-      <div className={clsx(
-        "absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br opacity-10 blur-2xl",
+        "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300",
         colors.gradient
       )} />
+
+      {/* Content - Horizontal layout */}
+      <div className="relative z-10 flex items-center gap-2">
+        {/* Icon */}
+        <div className={clsx(
+          "w-8 h-8 flex-shrink-0 rounded-md bg-gradient-to-br shadow-sm flex items-center justify-center",
+          colors.gradient
+        )}>
+          <Icon className="w-4 h-4 text-white" strokeWidth={2.5} />
+        </div>
+
+        {/* Text content */}
+        <div className="flex-grow min-w-0">
+          <div className={clsx(
+            "text-lg md:text-xl font-bold leading-none mb-0.5",
+            colors.text
+          )}>
+            {value}
+          </div>
+          <div className="text-xs font-medium text-gray-600 truncate">
+            {label}
+          </div>
+        </div>
+      </div>
     </motion.div>
   )
 }

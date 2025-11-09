@@ -13,32 +13,34 @@ import {
 
 export const Benefits: React.FC = () => {
   return (
-    <section id="benefits" className="snap-start snap-always relative h-[calc(100vh-72px)] min-h-[600px] flex items-center py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+    <section id="benefits" className="snap-start snap-always relative py-12 md:py-16 bg-white overflow-hidden">
       <Container size="lg" className="w-full relative z-10">
         {/* Header - Nivel 1 */}
-        <AnimatedSection className="text-center mb-8 md:mb-10 px-4">
+        <AnimatedSection className="text-center mb-6 md:mb-10 px-4">
+          <div className="inline-block mb-4 px-4 py-2 bg-green-100 rounded-full text-green-700 font-semibold text-sm">
+            🎁 Gratis para Médicos
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 leading-tight">
-            Transformación Real para{' '}
+            Beneficios para{' '}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
-              Médicos y Pacientes
+              Todos
             </span>
           </h2>
           <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
-            Tecnología de IA que elimina rechazos, reduce costos y optimiza cada paso del proceso
+            IA que elimina rechazos y optimiza cada paso
           </p>
         </AnimatedSection>
 
         {/* Feature Grid - Nivel 3: Ventajas específicas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {/* Beneficio 1: Velocidad */}
           <BenefitCard
             icon={Gauge}
-            title="Velocidad Sin Precedentes"
-            description="Reduce el tiempo de prescripción de minutos a segundos con validación automática instantánea"
+            title="Velocidad"
+            description="Prescribe en segundos con validación automática"
             features={[
               'Validación en tiempo real',
-              'Sugerencias automáticas',
-              'Búsqueda inteligente de componentes'
+              'Sugerencias automáticas'
             ]}
             color="blue"
             delay={0.1}
@@ -47,12 +49,11 @@ export const Benefits: React.FC = () => {
           {/* Beneficio 2: Seguridad */}
           <BenefitCard
             icon={ShieldCheck}
-            title="Seguridad Garantizada"
-            description="Cero rechazos con verificación triple: disponibilidad, compatibilidad y fabricabilidad"
+            title="Seguridad"
+            description="Cero rechazos con verificación completa"
             features={[
-              'Validación de componentes en stock',
-              'Verificación de interacciones',
-              'Control de calidad automático'
+              'Componentes en stock',
+              'Verificación de interacciones'
             ]}
             color="green"
             delay={0.2}
@@ -61,12 +62,11 @@ export const Benefits: React.FC = () => {
           {/* Beneficio 3: Ahorro */}
           <BenefitCard
             icon={DollarSign}
-            title="Ahorro Significativo"
-            description="Reduce costos hasta 30% con optimización de fórmulas y eliminación de rechazos"
+            title="Ahorro"
+            description="Reduce costos hasta 30%"
             features={[
               'Componentes optimizados',
-              'Sin costos de rechazo',
-              'Precios competitivos en tiempo real'
+              'Sin costos de rechazo'
             ]}
             color="orange"
             delay={0.3}
@@ -76,10 +76,9 @@ export const Benefits: React.FC = () => {
           <BenefitCard
             icon={Sparkles}
             title="Personalización con IA"
-            description="Sistema que aprende tus preferencias y sugiere las mejores opciones para cada paciente"
+            description="Aprende tus preferencias de prescripción"
             features={[
-              'Historial de prescripciones',
-              'Patrones de tratamiento',
+              'Historial médico',
               'Recomendaciones personalizadas'
             ]}
             color="purple"
@@ -89,11 +88,10 @@ export const Benefits: React.FC = () => {
           {/* Beneficio 5: Experiencia */}
           <BenefitCard
             icon={Users}
-            title="Mejor Experiencia"
-            description="Interfaz intuitiva que médicos y pacientes aman usar, sin curva de aprendizaje"
+            title="Fácil de Usar"
+            description="Interfaz intuitiva sin curva de aprendizaje"
             features={[
-              'Diseño simple e intuitivo',
-              'Acceso desde cualquier dispositivo',
+              'Diseño simple',
               'Soporte 24/7'
             ]}
             color="indigo"
@@ -103,12 +101,11 @@ export const Benefits: React.FC = () => {
           {/* Beneficio 6: Eficiencia */}
           <BenefitCard
             icon={Workflow}
-            title="Flujo Optimizado"
-            description="Proceso end-to-end integrado desde prescripción hasta entrega del preparado"
+            title="Flujo Completo"
+            description="De prescripción a entrega integrado"
             features={[
               'Trazabilidad completa',
-              'Notificaciones automáticas',
-              'Seguimiento en tiempo real'
+              'Notificaciones automáticas'
             ]}
             color="green"
             delay={0.6}

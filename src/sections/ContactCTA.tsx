@@ -47,14 +47,14 @@ export const ContactCTA: React.FC = () => {
   const isFormValid = formData.name && formData.email && formData.message
 
   return (
-    <section id="contact" className="snap-start snap-always relative h-[calc(100vh-72px)] min-h-[600px] flex items-center py-20 bg-white overflow-hidden">
+    <section id="contact" className="snap-start snap-always relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-72px)] flex items-center py-12 md:py-20 bg-white overflow-hidden">
       <Container size="md" className="w-full relative z-10">
         <AnimatedSection className="text-center mb-8 md:mb-12 px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
             ¿Listo para <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">comenzar</span>?
           </h2>
           <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Contáctanos y descubre cómo IMCLABS puede transformar tu práctica médica
+            Contáctanos y transforma tu práctica médica
           </p>
         </AnimatedSection>
 

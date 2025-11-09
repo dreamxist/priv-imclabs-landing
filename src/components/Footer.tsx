@@ -4,9 +4,9 @@ import startupChileLogo from '../assets/images/startupchile.png'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#262626] text-[#e5e5e5] py-12">
+    <footer className="bg-[#262626] text-[#e5e5e5] py-8 md:py-12">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Brand */}
           <div>
             <div className="mb-4">
@@ -16,17 +16,17 @@ export const Footer: React.FC = () => {
                 className="h-10 w-auto brightness-0 invert"
               />
             </div>
-            <p className="text-[#e5e5e5]/70 text-sm">
+            <p className="text-[#e5e5e5]/70 text-xs md:text-sm">
               Acercando la Receta Magistral a toda la Población
             </p>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#bfdbfe]">Contáctanos</h3>
+            <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-[#bfdbfe]">Contáctanos</h3>
             <a
               href="mailto:contacto@imclabs.com"
-              className="text-[#e5e5e5]/70 hover:text-[#3b82f6] transition-colors duration-200 flex items-center space-x-2"
+              className="text-[#e5e5e5]/70 hover:text-[#3b82f6] transition-colors duration-200 flex items-center space-x-2 text-sm md:text-base"
             >
               <svg
                 className="w-5 h-5"
@@ -47,8 +47,8 @@ export const Footer: React.FC = () => {
 
           {/* Social */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#bfdbfe]">Síguenos</h3>
-            <div className="flex space-x-4">
+            <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-[#bfdbfe]">Síguenos</h3>
+            <div className="flex space-x-3 md:space-x-4">
               <a
                 href="#"
                 className="w-10 h-10 bg-[#1e3a8a] rounded-full flex items-center justify-center hover:bg-[#3b82f6] transition-colors duration-200"
@@ -81,14 +81,14 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-[#1e3a8a] pt-8">
-          <div className="text-center text-[#e5e5e5]/70 text-sm">
-            <p className="mb-4">Proyecto financiado por:</p>
-            <div className="flex justify-center mb-4">
+        <div className="border-t border-[#1e3a8a] pt-6 md:pt-8">
+          <div className="text-center text-[#e5e5e5]/70 text-xs md:text-sm">
+            <p className="mb-3 md:mb-4">Proyecto financiado por:</p>
+            <div className="flex justify-center mb-3 md:mb-4">
               <img
                 src={startupChileLogo}
                 alt="Start-Up Chile by CORFO"
-                className="h-12 w-auto"
+                className="h-10 md:h-12 w-auto"
               />
             </div>
             <p className="text-xs">© 2025 IMCLABS. Todos los derechos reservados.</p>
