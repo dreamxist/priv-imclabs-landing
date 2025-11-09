@@ -1,6 +1,6 @@
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { Hero, About, Features, HowItWorks, Benefits, ContactCTA } from './sections'
+import { Hero, About, Features, HowItWorks, Benefits, Testimonials, ContactCTA } from './sections'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 function App() {
@@ -13,8 +13,10 @@ function App() {
         <Hero />
         <About />
         <Features />
+        {/* HowItWorks now renders 3 separate sections */}
         <HowItWorks />
         <Benefits />
+        <Testimonials />
         <ContactCTA />
         <div className="snap-start">
           <Footer />

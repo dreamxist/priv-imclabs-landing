@@ -1,118 +1,118 @@
 import { Container } from '../components/Container'
 import { AnimatedSection } from '../components/AnimatedSection'
-import { Card } from '../components/Card'
+import { BenefitCard } from '../components/BenefitCard'
+import {
+  ShieldCheck,
+  DollarSign,
+  Users,
+  Sparkles,
+  Workflow,
+  Gauge,
+} from 'lucide-react'
 
-const doctorBenefits = [
-  {
-    icon: '🔒',
-    title: 'Seguridad Garantizada',
-    description: 'Certeza en la existencia de componentes antes de recetar'
-  },
-  {
-    icon: '⚡',
-    title: 'Rapidez al Recetar',
-    description: 'De minutos a segundos con recomendaciones inteligentes'
-  },
-  {
-    icon: '🧠',
-    title: 'Aprende de Ti',
-    description: 'El sistema se adapta a tus preferencias médicas'
-  },
-  {
-    icon: '✅',
-    title: 'Sin Rechazos',
-    description: 'Recetas validadas que pasan siempre en fabricación'
-  },
-]
-
-const patientBenefits = [
-  {
-    icon: '⚡',
-    title: 'Proceso Rápido',
-    description: 'Obtén tu preparado de manera efectiva y sin demoras'
-  },
-  {
-    icon: '💰',
-    title: 'Menor Costo',
-    description: 'Recetas personalizadas a precios más accesibles'
-  },
-  {
-    icon: '🎯',
-    title: 'A Tu Medida',
-    description: 'Tratamiento personalizado según tus necesidades'
-  },
-]
 
 export const Benefits: React.FC = () => {
   return (
-    <section id="benefits" className="snap-start snap-always relative h-[calc(100vh-72px)] min-h-[600px] flex items-center py-20 bg-white overflow-hidden">
-      <Container className="w-full relative z-10">
-        <AnimatedSection className="text-center mb-12 md:mb-16 px-4">
-          <div className="inline-block mb-6 px-5 py-2 bg-primary/50 rounded-full text-primary font-semibold text-sm">
-            Beneficios Clave
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
-            Mejor para <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Médicos y Pacientes</span>
+    <section id="benefits" className="snap-start snap-always relative h-[calc(100vh-72px)] min-h-[600px] flex items-center py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+      <Container size="lg" className="w-full relative z-10">
+        {/* Header - Nivel 1 */}
+        <AnimatedSection className="text-center mb-8 md:mb-10 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 leading-tight">
+            Transformación Real para{' '}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
+              Médicos y Pacientes
+            </span>
           </h2>
-          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Una solución que conecta y beneficia a <span className="font-semibold text-accent">todo el ecosistema</span> de salud
+          <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+            Tecnología de IA que elimina rechazos, reduce costos y optimiza cada paso del proceso
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Doctor Benefits */}
-          <AnimatedSection delay={100}>
-            <Card variant="elevated" className="h-full">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                  👨‍⚕️
-                </div>
-                <h3 className="text-2xl font-bold text-gray-800">
-                  Para Médicos
-                </h3>
-              </div>
-              <div className="space-y-4">
-                {doctorBenefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-4 p-4 bg-primary/50 rounded-xl">
-                    <div className="flex-shrink-0 text-2xl">
-                      {benefit.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-gray-800 mb-1">{benefit.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          </AnimatedSection>
+        {/* Feature Grid - Nivel 3: Ventajas específicas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {/* Beneficio 1: Velocidad */}
+          <BenefitCard
+            icon={Gauge}
+            title="Velocidad Sin Precedentes"
+            description="Reduce el tiempo de prescripción de minutos a segundos con validación automática instantánea"
+            features={[
+              'Validación en tiempo real',
+              'Sugerencias automáticas',
+              'Búsqueda inteligente de componentes'
+            ]}
+            color="blue"
+            delay={0.1}
+          />
 
-          {/* Patient Benefits */}
-          <AnimatedSection delay={200}>
-            <Card variant="elevated" className="h-full">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                  👥
-                </div>
-                <h3 className="text-2xl font-bold text-gray-800">
-                  Para Pacientes
-                </h3>
-              </div>
-              <div className="space-y-4">
-                {patientBenefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-4 p-4 bg-accent/50 rounded-xl">
-                    <div className="flex-shrink-0 text-2xl">
-                      {benefit.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-gray-800 mb-1">{benefit.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          </AnimatedSection>
+          {/* Beneficio 2: Seguridad */}
+          <BenefitCard
+            icon={ShieldCheck}
+            title="Seguridad Garantizada"
+            description="Cero rechazos con verificación triple: disponibilidad, compatibilidad y fabricabilidad"
+            features={[
+              'Validación de componentes en stock',
+              'Verificación de interacciones',
+              'Control de calidad automático'
+            ]}
+            color="green"
+            delay={0.2}
+          />
+
+          {/* Beneficio 3: Ahorro */}
+          <BenefitCard
+            icon={DollarSign}
+            title="Ahorro Significativo"
+            description="Reduce costos hasta 30% con optimización de fórmulas y eliminación de rechazos"
+            features={[
+              'Componentes optimizados',
+              'Sin costos de rechazo',
+              'Precios competitivos en tiempo real'
+            ]}
+            color="orange"
+            delay={0.3}
+          />
+
+          {/* Beneficio 4: Personalización */}
+          <BenefitCard
+            icon={Sparkles}
+            title="Personalización con IA"
+            description="Sistema que aprende tus preferencias y sugiere las mejores opciones para cada paciente"
+            features={[
+              'Historial de prescripciones',
+              'Patrones de tratamiento',
+              'Recomendaciones personalizadas'
+            ]}
+            color="purple"
+            delay={0.4}
+          />
+
+          {/* Beneficio 5: Experiencia */}
+          <BenefitCard
+            icon={Users}
+            title="Mejor Experiencia"
+            description="Interfaz intuitiva que médicos y pacientes aman usar, sin curva de aprendizaje"
+            features={[
+              'Diseño simple e intuitivo',
+              'Acceso desde cualquier dispositivo',
+              'Soporte 24/7'
+            ]}
+            color="indigo"
+            delay={0.5}
+          />
+
+          {/* Beneficio 6: Eficiencia */}
+          <BenefitCard
+            icon={Workflow}
+            title="Flujo Optimizado"
+            description="Proceso end-to-end integrado desde prescripción hasta entrega del preparado"
+            features={[
+              'Trazabilidad completa',
+              'Notificaciones automáticas',
+              'Seguimiento en tiempo real'
+            ]}
+            color="green"
+            delay={0.6}
+          />
         </div>
       </Container>
     </section>

@@ -1,99 +1,62 @@
-import { Container } from '../components/Container'
-import { AnimatedSection } from '../components/AnimatedSection'
-import { Card } from '../components/Card'
-import { IconWrapper } from '../components/IconWrapper'
+import { ProcessIntro, DoctorProcess, PatientProcess, TimelineStep } from '../components/VerticalSwipeTimeline'
+import {
+  UserCheck,
+  Sparkles,
+  Send,
+  Mail,
+  CreditCard,
+  Package,
+} from 'lucide-react'
 
-const steps = [
+// Complete app workflow - 6 simple steps
+const workflowSteps: TimelineStep[] = [
   {
-    number: 1,
-    title: 'Médico: Ingreso de Datos',
-    description: 'Ingresa RUT del paciente y diagnóstico en el sistema',
-    icon: '👨‍⚕️',
-    detail: 'Solo toma unos segundos',
+    icon: UserCheck,
+    title: 'Ingreso de RUT y Diagnóstico',
+    description: 'El médico ingresa el RUT del paciente y el diagnóstico para iniciar el proceso de prescripción',
+    row: 'doctor' as const,
   },
   {
-    number: 2,
-    title: 'IA: Recomendación Inteligente',
-    description: 'El sistema analiza el diagnóstico, historial de recetas exitosas y disponibilidad de componentes',
-    icon: '🤖',
-    detail: 'El médico solo ajusta detalles según el paciente',
+    icon: Sparkles,
+    title: 'Recomendación Inteligente',
+    description: 'El sistema recomienda una receta magistral, que luego el médico solo ajusta en función del tipo de paciente',
+    row: 'doctor' as const,
   },
   {
-    number: 3,
-    title: 'Médico: Envío Digital',
-    description: 'Envía la receta de forma digital al paciente',
-    icon: '📧',
-    detail: 'Sin papeles, 100% digital',
+    icon: Send,
+    title: 'Envío Digital de Receta',
+    description: 'El médico envía de manera digital la receta al paciente de forma instantánea',
+    row: 'doctor' as const,
   },
   {
-    number: 4,
-    title: 'Paciente: Recibe Información',
-    description: 'Recibe por email la receta y lista de recetarios disponibles para elaborarla',
-    icon: '📱',
-    detail: 'Toda la información en un solo lugar',
+    icon: Mail,
+    title: 'Recepción de Receta y Opciones',
+    description: 'El paciente recibe vía email la receta y una lista de recetarios magistrales en condición de elaborarla',
+    row: 'patient' as const,
   },
   {
-    number: 5,
-    title: 'Paciente: Pago',
-    description: 'Paga la receta y la elaboración comienza inmediatamente',
-    icon: '💳',
-    detail: 'Sin esperas innecesarias',
+    icon: CreditCard,
+    title: 'Pago y Elaboración',
+    description: 'El paciente paga la receta e inmediatamente comienza su elaboración por el recetario seleccionado',
+    row: 'patient' as const,
   },
   {
-    number: 6,
-    title: 'Paciente: Retiro',
-    description: 'Retira su medicamento preparado a la medida',
-    icon: '✅',
-    detail: 'Tratamiento personalizado listo',
+    icon: Package,
+    title: 'Retiro del Preparado',
+    description: 'El paciente retira su preparado magistral en el recetario seleccionado o lo recibe a domicilio',
+    row: 'patient' as const,
   },
 ]
 
 export const HowItWorks: React.FC = () => {
   return (
-    <section id="how-it-works" className="snap-start snap-always h-[calc(100vh-72px)] min-h-[600px] flex items-center py-20 bg-white relative overflow-hidden">
-      <Container className="w-full relative z-10">
-        <AnimatedSection className="text-center mb-12 md:mb-16 px-4">
-          <div className="inline-block mb-6 px-5 py-2 bg-accent/50 rounded-full text-accent font-semibold text-sm">
-            Flujo de Trabajo
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
-            Simple, Rápido y <span className="bg-gradient-to-r from-accent to-accent-foreground bg-clip-text text-transparent">Efectivo</span>
-          </h2>
-          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
-            De la consulta médica al medicamento en <span className="font-semibold text-accent">6 pasos sencillos</span>
-          </p>
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-          {steps.map((step, index) => (
-            <AnimatedSection key={index} delay={index * 100}>
-              <Card className="h-full relative">
-                <div className="flex items-start space-x-4">
-                  <IconWrapper
-                    variant={index % 2 === 0 ? 'menta' : 'lavanda'}
-                    size="md"
-                    className="flex-shrink-0"
-                  >
-                    <span className="font-bold text-xl">{step.number}</span>
-                  </IconWrapper>
-                  <div className="flex-1">
-                    <div className="text-3xl mb-3">{step.icon}</div>
-                    <h3 className="text-lg font-bold mb-2 text-gray-800">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-2">
-                      {step.description}
-                    </p>
-                    <p className="text-sm text-primary font-medium italic">
-                      {step.detail}
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </AnimatedSection>
-          ))}
-        </div>
-      </Container>
-    </section>
+    <>
+      <ProcessIntro
+        title="Proceso Completo"
+        subtitle="De la prescripción médica a tu medicamento personalizado"
+      />
+      <DoctorProcess steps={workflowSteps} />
+      <PatientProcess steps={workflowSteps} />
+    </>
   )
 }
