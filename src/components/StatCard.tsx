@@ -61,10 +61,10 @@ export const StatCard: React.FC<StatCardProps> = ({
   icon: Icon,
   value,
   label,
-  description,
+  description: _description,
   color = 'blue',
   delay = 0,
-  trend = 'neutral'
+  trend: _trend = 'neutral'
 }) => {
   const colors = colorConfig[color]
 

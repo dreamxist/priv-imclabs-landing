@@ -54,6 +54,45 @@ The optimized production build will be in the `dist/` directory.
 npm run preview
 ```
 
+## Deployment
+
+### Deploy to Vercel
+
+This project is optimized for deployment on Vercel. Follow these steps:
+
+#### Option 1: Deploy via Vercel CLI
+
+1. Install Vercel CLI globally:
+```bash
+npm install -g vercel
+```
+
+2. Deploy to Vercel:
+```bash
+vercel
+```
+
+3. Follow the prompts to complete deployment
+
+#### Option 2: Deploy via GitHub
+
+1. Push your code to a GitHub repository
+2. Visit [vercel.com](https://vercel.com)
+3. Sign in and click "New Project"
+4. Import your GitHub repository
+5. Vercel will automatically detect the Vite configuration
+6. Click "Deploy"
+
+The project includes:
+- `vercel.json` - Configuration for proper SPA routing
+- `.vercelignore` - Optimized file exclusions for faster deployments
+
+Vercel will automatically:
+- Install dependencies
+- Run the build command
+- Deploy the `dist/` directory
+- Set up automatic deployments for future commits
+
 ## Project Structure
 
 ```

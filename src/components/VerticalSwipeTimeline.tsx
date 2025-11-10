@@ -105,7 +105,6 @@ export const DoctorProcess = ({ steps }: { steps: TimelineStep[] }) => {
       <div className="w-full max-w-3xl mx-auto px-4 md:px-8">
         <div className="mb-6 md:mb-10 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-600 mb-2">Proceso del Médico</h3>
-          <p className="text-sm md:text-base text-gray-600">Pasos 1 - 2 - 3</p>
         </div>
         <div>
           {doctorSteps.map((step, index) => (
@@ -126,7 +125,7 @@ export const PatientProcess = ({ steps }: { steps: TimelineStep[] }) => {
       <div className="w-full max-w-3xl mx-auto px-4 md:px-8">
         <div className="mb-6 md:mb-10 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-green-600 mb-2">Proceso del Paciente</h3>
-          <p className="text-sm md:text-base text-gray-600">Pasos 4 - 5 - 6</p>
+
         </div>
         <div>
           {patientSteps.map((step, index) => (

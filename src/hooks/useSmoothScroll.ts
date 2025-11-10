@@ -6,7 +6,7 @@ export const useSmoothScroll = () => {
     if (!smoothScrollContainer) return
 
     let isScrolling = false
-    let scrollTimeout: NodeJS.Timeout
+    let scrollTimeout: number
 
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling) {

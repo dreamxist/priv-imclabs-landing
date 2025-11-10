@@ -10,7 +10,7 @@ export const useScrollReveal = (options: UseScrollRevealOptions = {}) => {
   const {
     threshold = 0.15,
     rootMargin = '0px 0px -50px 0px',
-    triggerOnce = false,
+    triggerOnce: _triggerOnce = false,
   } = options
 
   const elementRef = useRef<HTMLElement | null>(null)
