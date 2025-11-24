@@ -1,6 +1,6 @@
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { Hero, Features, HowItWorks, Benefits, Testimonials, ContactCTA } from './sections'
+import { Hero, Features, HowItWorks, Benefits, /* Testimonials, */ ContactCTA } from './sections'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 function App() {
