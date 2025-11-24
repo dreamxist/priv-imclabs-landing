@@ -11,10 +11,7 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <AnimatedSection animation="fade-right" className="text-center lg:text-left">
-            <AnimatedSection delay={200} animation="fade-up">
-              <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm">
-              </div>
-            </AnimatedSection>
+
 
             <AnimatedSection delay={300} animation="fade-up">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-6">
