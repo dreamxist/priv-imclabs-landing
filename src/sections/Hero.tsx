@@ -13,7 +13,6 @@ export const Hero: React.FC = () => {
           <AnimatedSection animation="fade-right" className="text-center lg:text-left">
             <AnimatedSection delay={200} animation="fade-up">
               <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm">
-                🧬 IA + Recetas Magistrales
               </div>
             </AnimatedSection>
 

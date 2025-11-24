@@ -42,8 +42,8 @@ const workflowSteps: TimelineStep[] = [
   },
   {
     icon: Package,
-    title: 'Retiro o Delivery',
-    description: 'Retira en recetario o recibe a domicilio',
+    title: 'Delivery',
+    description: 'Recibe tu medicamento a domicilio',
     row: 'patient' as const,
   },
 ]

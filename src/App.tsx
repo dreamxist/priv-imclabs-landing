@@ -15,7 +15,7 @@ function App() {
         {/* HowItWorks now renders 3 separate sections */}
         <HowItWorks />
         <Benefits />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <ContactCTA />
         <div className="snap-start">
           <Footer />

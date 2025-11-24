@@ -179,7 +179,7 @@ export const Testimonials: React.FC = () => {
 
             <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl border border-gray-200/50">
               <p className="text-lg md:text-xl font-bold text-gray-800 mb-2">
-                Únete a +500 profesionales de la salud
+                Únete a +200 profesionales de la salud
               </p>
               <p className="text-sm md:text-base text-gray-600 mb-5">
                 que ya transformaron su práctica médica con IMC Labs

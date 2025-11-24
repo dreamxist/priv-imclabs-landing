@@ -30,18 +30,42 @@ export const ContactCTA: React.FC = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Mock submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Nuevo contacto desde landing: ${formData.name}`,
+          from_name: 'Landing IMClabs',
+          replyto: formData.email,
+        })
+      })
 
-    console.log('Form submitted:', formData)
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+      const data = await response.json()
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' })
-      setIsSubmitted(false)
-    }, 3000)
+      if (data.success) {
+        setIsSubmitted(true)
+        setTimeout(() => {
+          setFormData({ name: '', email: '', message: '' })
+          setIsSubmitted(false)
+        }, 3000)
+      } else {
+        console.error('Error:', data)
+        alert('Error al enviar. Intenta de nuevo.')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      alert('Error al enviar. Intenta de nuevo.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const isFormValid = formData.name && formData.email && formData.message
